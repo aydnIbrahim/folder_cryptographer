@@ -3,7 +3,6 @@ import shutil
 import pyzipper
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
-import hashlib
 
 class FileCrypto:
     @staticmethod
@@ -22,10 +21,8 @@ class FileCrypto:
                         zipf.write(file_path, arcname)
             
             shutil.rmtree(folder_path)  # Orijinal klasörü tamamen sil
-            print("file_crypto.py/encrypt_folder return True öncesi")
             return True
         except Exception as e:
-            print(f"Hata: ZIP dosyası oluşturulamadı! {e}")
             return False
 
     @staticmethod
@@ -38,8 +35,7 @@ class FileCrypto:
             zip_filename += ".zip"
 
         if not os.path.exists(zip_filename):
-            print(f"Hata: {zip_filename} bulunamadı.")
-            return False  # Başarısız döndür
+            return False
 
         try:
             with pyzipper.AESZipFile(zip_filename, 'r') as zipf:
@@ -53,7 +49,6 @@ class FileCrypto:
                 zipf.extractall(extracted_folder)
 
             os.remove(zip_filename)  # ZIP dosyasını tamamen sil
-            return True  # Başarı durumu
+            return True
         except (RuntimeError, Exception) as e:
-            print(f"Hata: Şifre hatalı veya zip dosyası bozulmuş! {e}")
-            return False  # Başarısız durumu
+            return False

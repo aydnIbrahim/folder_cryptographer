@@ -8,7 +8,7 @@ from core.file_crypto import FileCrypto
 class MainUI(QWidget):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Şifreli Dosya Yönetimi")
+        self.setWindowTitle("Folder Crytographer")
         self.setGeometry(300, 200, 400, 300)
         self.setWindowIcon(QIcon("assets/Comprimidos_25590.ico"))
         self.initUI()
