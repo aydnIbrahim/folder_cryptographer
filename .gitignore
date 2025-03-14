@@ -1,0 +1,20 @@
+# Derleme dosyalarını hariç tut
+build/
+dist/
+*.spec
+
+# Python sanal ortam klasörü
+venv/
+
+# Bytecode dosyaları
+__pycache__/
+*.pyc
+*.pyo
+
+# VS Code ayarları
+.vscode/
+
+# IDE dosyaları (PyCharm, VS Code vs.)
+.idea/
+*.iml
+.DS_Store
